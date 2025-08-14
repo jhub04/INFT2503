@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.0.6">
+  <diagram name="Page-1" id="P0upKeqfUBGl9vb33ONN">
+    <mxGraphModel dx="1178" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kAVYnkPNEX6EgzNhFIt5-1" value="identifikator: i&lt;div&gt;verdi: 3&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kAVYnkPNEX6EgzNhFIt5-2" value="minnelokasjon:&amp;nbsp;0x16d5ab25c" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="100" y="128" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kAVYnkPNEX6EgzNhFIt5-3" value="identifikator: j&lt;div&gt;verdi: 5&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="162" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kAVYnkPNEX6EgzNhFIt5-4" value="minnelokasjon:&amp;nbsp;0x16d5ab258" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="480" y="130" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kAVYnkPNEX6EgzNhFIt5-5" value="identifikator: p&lt;div&gt;verdi:&amp;nbsp;&lt;span style=&quot;text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;0x16d5ab25c&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kAVYnkPNEX6EgzNhFIt5-7" value="identifikator: q&lt;div&gt;verdi:&amp;nbsp;&lt;span style=&quot;text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;0x16d5ab258&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kAVYnkPNEX6EgzNhFIt5-8" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="kAVYnkPNEX6EgzNhFIt5-7" target="kAVYnkPNEX6EgzNhFIt5-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="380" as="sourcePoint" />
+            <mxPoint x="450" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kAVYnkPNEX6EgzNhFIt5-9" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="kAVYnkPNEX6EgzNhFIt5-5" target="kAVYnkPNEX6EgzNhFIt5-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="328" as="sourcePoint" />
+            <mxPoint x="250" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
