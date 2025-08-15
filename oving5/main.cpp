@@ -31,11 +31,32 @@ public:
   };
 
   class King : public Piece {
-    // missing implementations
+    public:
+      King(Color color) : Piece(color) {};
+
+      std::string type() const override {
+        return Piece::color_string() + " king";
+      }
+
+      bool valid_move(int from_x, int from_y, int to_x, int to_y) const override {
+        return abs(from_x - to_x) == 1 || abs(from_y - to_y) == 1;
+      }
   };
 
   class Knight : public Piece {
-    // missing implementations
+    public:
+      Knight(Color color) : Piece(color) {};
+
+      std::string type() const override {
+        return Piece::color_string() + " knight";
+      }
+
+      bool valid_move(int from_x, int from_y, int to_x, int to_y) const override {
+        int dX = abs(to_x - from_x);
+        int dY = abs(to_y - from_y);
+
+        return (dX == 1 && dY == 2) || (dX == 2 && dY == 1);
+      }
   };
 
   ChessBoard() {
