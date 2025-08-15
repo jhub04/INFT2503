@@ -1,4 +1,4 @@
-../gtkmm-example
+gtkmm-example
 # Ignore all JetBrains IDE config folders
 .idea/
 **/.idea/
