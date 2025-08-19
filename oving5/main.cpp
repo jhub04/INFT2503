@@ -55,7 +55,7 @@ public:
         int dX = abs(to_x - from_x);
         int dY = abs(to_y - from_y);
 
-        return (dX == 1 && dY == 2) || (dX == 2 && dY == 1);
+        return dX * dX + dY*dY == 5;
       }
   };
 
