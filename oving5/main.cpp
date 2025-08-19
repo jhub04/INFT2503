@@ -80,9 +80,9 @@ public:
   }
 
   void print() {
-    for (int y = 7; y >= 0; --y) {          // ranks 8 → 1
-      std::cout << (y + 1) << " ";             // print rank number (1–8)
-      for (int x = 0; x < 8; ++x) {       // files a → h
+    for (int y = 7; y >= 0; --y) {
+      std::cout << (y + 1) << " ";
+      for (int x = 0; x < 8; ++x) {
         if (squares[x][y]) {
           std::cout << squares[x][y]->symbol() << " ";
         } else {
