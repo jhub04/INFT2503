@@ -39,7 +39,10 @@ public:
       }
 
       bool valid_move(int from_x, int from_y, int to_x, int to_y) const override {
-        return abs(from_x - to_x) == 1 || abs(from_y - to_y) == 1;
+        int dX = abs(to_x - from_x);
+        int dY = abs(to_y - from_y);
+
+        return dX <= 1 && dY <= 1 && (dX != 0 || dY != 0) ;
       }
   };
 
