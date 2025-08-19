@@ -1,6 +1,9 @@
 gtkmm-example
-# Ignore all JetBrains IDE config folders
+
+# JetBrains IDE configs
 .idea/
+*/.idea/
 **/.idea/
 
+# macOS metadata
 .DS_Store
