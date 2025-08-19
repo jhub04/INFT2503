@@ -28,6 +28,8 @@ public:
 
     /// Returns true if the given chess piece move is valid
     virtual bool valid_move(int from_x, int from_y, int to_x, int to_y) const = 0;
+
+    virtual char symbol() const = 0;
   };
 
   class King : public Piece {
@@ -43,6 +45,10 @@ public:
         int dY = abs(to_y - from_y);
 
         return dX <= 1 && dY <= 1 && (dX != 0 || dY != 0) ;
+      }
+
+      char symbol() const override {
+        return 'K';
       }
   };
 
@@ -60,6 +66,10 @@ public:
 
         return dX * dX + dY*dY == 5;
       }
+
+      char symbol() const override {
+        return 'N';
+      }
   };
 
   ChessBoard() {
@@ -67,6 +77,23 @@ public:
     squares.resize(8);
     for (auto &square_column : squares)
       square_column.resize(8);
+  }
+
+  void print() {
+    for (int y = 7; y >= 0; --y) {          // ranks 8 → 1
+      std::cout << (y + 1) << " ";             // print rank number (1–8)
+      for (int x = 0; x < 8; ++x) {       // files a → h
+        if (squares[x][y]) {
+          std::cout << squares[x][y]->symbol() << " ";
+        } else {
+          std::cout << ". ";
+        }
+      }
+      std::cout << std::endl;
+    }
+
+    std::cout << "  a b c d e f g h" << std::endl << std::endl;
+
   }
 
   /// 8x8 squares occupied by 1 or 0 chess pieces
@@ -97,6 +124,7 @@ public:
           }
         }
         piece_to = move(piece_from);
+        print();
         return true;
       } else {
         cout << "can not move " << piece_from->type() << " from " << from << " to " << to << endl;
@@ -119,6 +147,9 @@ int main() {
   board.squares[4][7] = make_unique<ChessBoard::King>(ChessBoard::Color::BLACK);
   board.squares[1][7] = make_unique<ChessBoard::Knight>(ChessBoard::Color::BLACK);
   board.squares[6][7] = make_unique<ChessBoard::Knight>(ChessBoard::Color::BLACK);
+
+  std::cout << "Initial board" << std::endl;
+  board.print();
 
   cout << "Invalid moves:" << endl;
   board.move_piece("e3", "e2");
