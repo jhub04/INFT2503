@@ -2,3 +2,5 @@ gtkmm-example
 # Ignore all JetBrains IDE config folders
 .idea/
 **/.idea/
+
+.DS_Store
