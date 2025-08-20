@@ -46,22 +46,6 @@ ChessBoard::ChessBoard() {
     square_column.resize(8);
 }
 
-void ChessBoard::print() {
-  for (int y = 7; y >= 0; --y) {
-    std::cout << (y + 1) << " ";
-    for (int x = 0; x < 8; ++x) {
-      if (squares[x][y]) {
-        std::cout << squares[x][y]->symbol() << " ";
-      } else {
-        std::cout << ". ";
-      }
-    }
-    std::cout << std::endl;
-  }
-
-  std::cout << "  a b c d e f g h" << std::endl << std::endl;
-}
-
 /// Move a chess piece if it is a valid move
 bool ChessBoard::move_piece(const std::string &from, const std::string &to) {
   int from_x = from[0] - 'a';

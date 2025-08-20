@@ -3,8 +3,9 @@
 
 class ChessBoardPrint {
   public:
-    ChessBoardPrint(ChessBoard &chess_board);
+    ChessBoardPrint(ChessBoard &board);
 
+    void print(const ChessBoard &board);
 
 };
 

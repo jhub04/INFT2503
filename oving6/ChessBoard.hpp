@@ -47,8 +47,6 @@ class ChessBoard {
 
     ChessBoard();
 
-    void print();
-
     std::vector<std::vector<std::unique_ptr<Piece>>> squares;
 
     bool move_piece(const std::string &from, const std::string &to);

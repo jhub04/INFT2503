@@ -22,3 +22,20 @@ ChessBoardPrint::ChessBoardPrint(ChessBoard &board) {
     std::cout << "no piece at " << square << std::endl;
   };
 }
+
+void ChessBoardPrint::print(const ChessBoard &board) {
+  for (int y = 7; y >= 0; --y) {
+    std::cout << (y + 1) << " ";
+    for (int x = 0; x < 8; ++x) {
+      if (board.squares[x][y]) {
+        std::cout << board.squares[x][y]->symbol() << " ";
+      } else {
+        std::cout << ". ";
+      }
+    }
+    std::cout << std::endl;
+  }
+
+  std::cout << "  a b c d e f g h" << std::endl << std::endl;
+}
+
