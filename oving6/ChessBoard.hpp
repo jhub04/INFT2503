@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -52,6 +53,10 @@ class ChessBoard {
 
     bool move_piece(const std::string &from, const std::string &to);
 
-
+    std::function<void(const Piece &piece, const std::string &from, const std::string &to)> on_piece_move;
+    std::function<void(const Piece &piece, const std::string &square)> on_piece_removed;
+    std::function<void(Color color)> on_lost_game;
+    std::function<void(const Piece &piece, const std::string &from, const std::string &to)> on_piece_move_invalid;
+    std::function<void(const std::string &square)> on_piece_move_missing;
 };
 

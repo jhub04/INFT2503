@@ -62,6 +62,7 @@ void ChessBoard::print() {
   std::cout << "  a b c d e f g h" << std::endl << std::endl;
 }
 
+/// Move a chess piece if it is a valid move
 bool ChessBoard::move_piece(const std::string &from, const std::string &to) {
   int from_x = from[0] - 'a';
   int from_y = std::stoi(std::string() + from[1]) - 1;
@@ -71,32 +72,36 @@ bool ChessBoard::move_piece(const std::string &from, const std::string &to) {
   auto &piece_from = squares[from_x][from_y];
   if (piece_from) {
     if (piece_from->valid_move(from_x, from_y, to_x, to_y)) {
-      std::cout << piece_from->type() << " is moving from " << from << " to " << to << std::endl;
+      if (on_piece_move)
+        on_piece_move(*piece_from, from, to);
       auto &piece_to = squares[to_x][to_y];
       if (piece_to) {
         if (piece_from->color != piece_to->color) {
-          std::cout << piece_to->type() << " is being removed from " << to << std::endl;
-          if (auto king = dynamic_cast<King *>(piece_to.get()))
-            std::cout << king->color_string() << " lost the game" << std::endl;
+          if (on_piece_removed)
+            on_piece_removed(*piece_to, to);
+          if (auto king = dynamic_cast<King *>(piece_to.get())) {
+            if (on_lost_game)
+              on_lost_game(king->color);
+          }
         } else {
-          // piece in the from square has the same color as the piece in the to square
-          std::cout << "can not move " << piece_from->type() << " from " << from << " to " << to << std::endl;
+          if (on_piece_move_invalid)
+            on_piece_move_invalid(*piece_from, from, to);
           return false;
         }
       }
       piece_to = std::move(piece_from);
-      print();
       return true;
     } else {
-      std::cout << "can not move " << piece_from->type() << " from " << from << " to " << to << std::endl;
+      if (on_piece_move_invalid)
+        on_piece_move_invalid(*piece_from, from, to);
       return false;
     }
   } else {
-    std::cout << "no piece at " << from << std::endl;
+    if (on_piece_move_missing)
+      on_piece_move_missing(from);
     return false;
   }
-
-}
+};
 
 
 
