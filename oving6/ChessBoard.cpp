@@ -74,6 +74,9 @@ bool ChessBoard::move_piece(const std::string &from, const std::string &to) {
         }
       }
       piece_to = std::move(piece_from);
+      if (after_piece_move) {
+        after_piece_move();
+      }
       return true;
     } else {
       if (on_piece_move_invalid)

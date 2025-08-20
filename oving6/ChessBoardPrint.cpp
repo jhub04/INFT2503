@@ -21,6 +21,9 @@ ChessBoardPrint::ChessBoardPrint(ChessBoard &board) {
   board.on_piece_move_missing = [](const std::string &square) {
     std::cout << "no piece at " << square << std::endl;
   };
+  board.after_piece_move = [this, &board]() {
+    print(board);
+  };
 }
 
 void ChessBoardPrint::print(const ChessBoard &board) {
