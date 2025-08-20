@@ -4,7 +4,7 @@
 using namespace std;
 using namespace boost::asio::ip;
 
-class EchoServer {
+class WebServer {
 private:
   class Connection {
   public:
@@ -67,8 +67,6 @@ private:
         if (message == "exit")
           return;
 
-        cout << "Message from a connected client: " << message << endl;
-
         auto write_buffer = make_shared<boost::asio::streambuf>();
         ostream write_stream(write_buffer.get());
 
@@ -101,7 +99,7 @@ private:
   }
 
 public:
-  EchoServer() : endpoint(tcp::v4(), 8080), acceptor(io_context, endpoint) {}
+  WebServer() : endpoint(tcp::v4(), 8080), acceptor(io_context, endpoint) {}
 
   void start() {
     accept();
@@ -111,10 +109,7 @@ public:
 };
 
 int main() {
-  EchoServer echo_server;
+  WebServer web_server;
 
-  cout << "Starting echo server" << endl
-       << "Connect in a terminal with: telnet localhost 8080. Type 'exit' to end connection." << endl;
-
-  echo_server.start();
+  web_server.start();
 }
