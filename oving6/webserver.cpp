@@ -17,6 +17,18 @@ private:
   tcp::endpoint endpoint;
   tcp::acceptor acceptor;
 
+  string getHTTPPath(string message) {
+    istringstream iss(message);
+
+    string httpMethod;
+    string httpPath;
+    string httpVersion;
+
+    iss >> httpMethod >> httpPath >> httpVersion;
+
+    return httpPath;
+  }
+
   void handle_request(shared_ptr<Connection> connection) {
     auto read_buffer = make_shared<boost::asio::streambuf>();
     // Read from client until newline ("\r\n")
@@ -28,6 +40,9 @@ private:
         std::string message;
         getline(read_stream, message);
         message.pop_back(); // Remove "\r" at the end of message
+
+        string path = getHTTPPath(message);
+
 
         // Close connection when "exit" is retrieved from client
         if (message == "exit")
