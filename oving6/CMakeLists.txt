@@ -5,4 +5,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -Wextra")
 
 add_executable(oving6 main.cpp
         ChessBoard.cpp
-        ChessBoard.hpp)
+        ChessBoard.hpp
+        ChessBoardPrint.cpp
+        ChessBoardPrint.hpp)
