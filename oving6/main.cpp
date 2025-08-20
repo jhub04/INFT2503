@@ -4,9 +4,11 @@
 #include <vector>
 
 #include "ChessBoard.hpp"
+#include "ChessBoardPrint.hpp"
 
 int main() {
   ChessBoard board;
+  ChessBoardPrint print(board);
 
   board.squares[4][0] = std::make_unique<ChessBoard::King>(ChessBoard::Color::WHITE);
   board.squares[1][0] = std::make_unique<ChessBoard::Knight>(ChessBoard::Color::WHITE);
@@ -15,9 +17,6 @@ int main() {
   board.squares[4][7] = std:: make_unique<ChessBoard::King>(ChessBoard::Color::BLACK);
   board.squares[1][7] = std::make_unique<ChessBoard::Knight>(ChessBoard::Color::BLACK);
   board.squares[6][7] = std::make_unique<ChessBoard::Knight>(ChessBoard::Color::BLACK);
-
-  std::cout << "Initial board" << std::endl;
-  board.print();
 
   std::cout << "Invalid moves:" << std::endl;
   board.move_piece("e3", "e2");
